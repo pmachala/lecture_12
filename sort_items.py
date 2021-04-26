@@ -10,6 +10,16 @@ def read_row(file_name):
     :param file_name: (str), name of CSV file
     :return: (list, int),
     """
+    file_path = os.path.join(cwd_path, file_name)
+    with open(file_path, "r") as csv_file:
+        reader = csv.reader(file_path, delimiter="\t")
+        print(list(reader))
+        for row in reader:
+            data = []
+            for prvek in row:
+                data.append(int(prvek))
+    return data
+
 
 
 def read_rows(file_name, row_number):
@@ -38,6 +48,8 @@ def bubble_sort(number_array):
 
 
 def main():
+    data = read_row("numbers_one.csv")
+    print(data)
 
     # Ukol: Selection Sort
 
