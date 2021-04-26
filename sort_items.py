@@ -66,6 +66,12 @@ def bubble_sort(number_array):
        :param number_array: (list,int), list with numeric array
        :return: (list, int), sorted numeric array
     """
+    a = len(number_array)
+    for num_index in range(a - 1):
+        for i in range(a):
+            if number_array[num_index] > number_array[num_index + 1]:
+                number_array[num_index + 1], number_array[num_index] = number_array[num_index], number_array[num_index + 1]
+        return number_array
 
 
 def main():
@@ -76,7 +82,8 @@ def main():
 
     sorted_num = selection_sort(data, "ascending")
     print(sorted_num)
-
+    sorted_num = bubble_sort(data)
+    print(sorted_num)
 
     # Ukol: Selection Sort
 
