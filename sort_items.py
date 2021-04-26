@@ -29,7 +29,16 @@ def read_rows(file_name, row_number):
     :param row_number: (int), number of selected row
     :return: (list, int),
     """
-
+    file_path = os.path.join(cwd_path, file_name)
+    with open(file_path, "r") as csv_file:
+        reader = csv.reader(file_path, delimiter=",")
+        print(list(reader))
+        for row_idx, row in enumerate(reader):
+            if row_idx == row_number:
+                data = []
+                for prvek in row:
+                    data.append(int(prvek))
+    return data
 
 def selection_sort(number_array,direction ="ascending"):
     """
